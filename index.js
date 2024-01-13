@@ -11,6 +11,14 @@ function addData(){
     let cell2 = newRow.insertCell(1);
     let cell3 = newRow.insertCell(2);
     let cell4 = newRow.insertCell(3);
+    let cell5 = newRow.insertCell(4);
+
+    idCount = 1;
+    cell1.innerHTML = idCount++;
+    cell2.innerHTML = name;
+    cell3.innerHTML = mnumber;
+    cell4.innerHTML = email;
+    cell5.innerHTML = `<button onClick="" ></button>`
 
     
 }
