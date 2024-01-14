@@ -7,7 +7,7 @@ function addData(){
 
     const table = document.getElementById('dataTable');
 
-    const addRow = table.insertRow(table.rows.length);
+    const addRow = table.insertRow(table.rows.length); // Added row after table
 
     let cell1 = addRow.insertCell(0);
     let cell2 = addRow.insertCell(1);
