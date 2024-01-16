@@ -26,13 +26,14 @@ function numValidation() {
 
     if (number !== 1234567890 && number.length != 10) {
         alert("Please enter a valid mobile number with exactly 10 digits.");
+        return false;
     }
     return true
 }
 
 function addData() {
 
-    if(!nameValidation() && numValidation()){
+    if(!nameValidation() && !numValidation()){
         return;
     } 
 
