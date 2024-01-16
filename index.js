@@ -10,14 +10,13 @@ function showTable() {
 
 function nameValidation() {
     let name = document.getElementById('fname').value;
-
+    var regex = /^[a-zA-Z]+$/;
     if (name === "") {
         alert("Name should not be blank");
         return false;
-    }
-    if (name === 1234567890 || name === "!@#$%^&*()+:;,'") {
+    }else if (!regex.test(name)) {  // test will check jo regex m hai vo name m bhi hai ke nahi
         alert("No Special Character are allowed");
-        return false
+        return false;
     }
     return true;
 }
@@ -33,9 +32,10 @@ function numValidation() {
 
 function addData() {
 
-    nameValidation();
-    numValidation();
-    
+    if(!nameValidation() && numValidation()){
+        return;
+    } 
+
     let name = document.getElementById('fname').value;
     let email = document.getElementById('email').value;
     let mnumber = document.getElementById('mobileNumber').value;
