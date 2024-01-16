@@ -24,6 +24,16 @@ function addData(){
     name = document.getElementById('fname').value = '';
     email = document.getElementById("email").value = '';
     mnumber = document.getElementById('mobileNumber').value = '';
+
+    let fname = document.getElementById('fname').value;
+    if (fname == "") {
+        alert("Name should not be blank");
+        return false;
+    }
+    else if (fname == 1234567890 || fname == "!@#$%^&*()+:;,'"){
+        alert("No Special Character are allowed");
+        return false;
+    }
 }
 
 function editbtn(button){
