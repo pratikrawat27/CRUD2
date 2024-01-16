@@ -1,10 +1,10 @@
 let idCount = 1;
 
-function hideTable(){
+function hideTable() {
     let table = document.getElementById("dataTable").style.visibility = "hidden";
 }
 
-function showTable(){
+function showTable() {
     let table = document.getElementById("dataTable").style.visibility = "visible";
 }
 
@@ -15,17 +15,17 @@ function nameValidation() {
         alert("Name should not be blank");
         return false;
     }
-    if (name === 1234567890 || name === "!@#$%^&*()+:;,'"){
+    if (name === 1234567890 || name === "!@#$%^&*()+:;,'") {
         alert("No Special Character are allowed");
         return false
     }
     return true;
 }
 
-function numValidation(){
+function numValidation() {
     let number = document.getElementById('mobileNumber').value;
 
-    if(number !== 1234567890 && number.length != 10){
+    if (number !== 1234567890 && number.length != 10) {
         alert("Please enter a valid mobile number with exactly 10 digits.");
     }
     return true
@@ -82,5 +82,4 @@ function editbtn(button) {
 function deletebtn(button) {
     let row = button.parentNode.parentNode;
     row.remove();
-    hideTable();
 }
