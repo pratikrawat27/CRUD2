@@ -32,6 +32,10 @@ function numValidation() {
 }
 
 function addData() {
+
+    nameValidation();
+    numValidation();
+    
     let name = document.getElementById('fname').value;
     let email = document.getElementById('email').value;
     let mnumber = document.getElementById('mobileNumber').value;
@@ -46,21 +50,17 @@ function addData() {
     let cell4 = addRow.insertCell(3);
     let cell5 = addRow.insertCell(4);
 
-    nameValidation();
-    numValidation();
-
     cell1.innerHTML = idCount++;
     cell2.innerHTML = name;
     cell3.innerHTML = mnumber;
     cell4.innerHTML = email;
     cell5.innerHTML = `<button type="button" class="btn btn-warning btn-sm edit" onclick="editbtn(this)">Edit</button>` + `<button type="button class="btn btn-danger btn-sm delete" onclick="deletebtn(this)">Delete</button>`
 
-    showTable();
-
     name = document.getElementById('fname').value = '';
     email = document.getElementById("email").value = '';
     mnumber = document.getElementById('mobileNumber').value = '';
 
+    showTable();
 }
 
 function editbtn(button) {
