@@ -1,6 +1,37 @@
 let idCount = 1;
 
-function addData(){
+function hideTable(){
+    let table = document.getElementById("dataTable").style.visibility = "hidden";
+}
+
+function showTable(){
+    let table = document.getElementById("dataTable").style.visibility = "visible";
+}
+
+function nameValidation() {
+    let name = document.getElementById('fname').value;
+
+    if (name === "") {
+        alert("Name should not be blank");
+        return false;
+    }
+    if (name === 1234567890 || name === "!@#$%^&*()+:;,'"){
+        alert("No Special Character are allowed");
+        return false
+    }
+    return true;
+}
+
+function numValidation(){
+    let number = document.getElementById('mobileNumber').value;
+
+    if(number !== 1234567890 && number.length != 10){
+        alert("Please enter a valid mobile number with exactly 10 digits.");
+    }
+    return true
+}
+
+function addData() {
     let name = document.getElementById('fname').value;
     let email = document.getElementById('email').value;
     let mnumber = document.getElementById('mobileNumber').value;
@@ -15,28 +46,24 @@ function addData(){
     let cell4 = addRow.insertCell(3);
     let cell5 = addRow.insertCell(4);
 
+    nameValidation();
+    numValidation();
+
     cell1.innerHTML = idCount++;
     cell2.innerHTML = name;
     cell3.innerHTML = mnumber;
     cell4.innerHTML = email;
     cell5.innerHTML = `<button type="button" class="btn btn-warning btn-sm edit" onclick="editbtn(this)">Edit</button>` + `<button type="button class="btn btn-danger btn-sm delete" onclick="deletebtn(this)">Delete</button>`
 
+    showTable();
+
     name = document.getElementById('fname').value = '';
     email = document.getElementById("email").value = '';
     mnumber = document.getElementById('mobileNumber').value = '';
 
-    let fname = document.getElementById('fname').value;
-    if (fname == "") {
-        alert("Name should not be blank");
-        return false;
-    }
-    else if (fname == 1234567890 || fname == "!@#$%^&*()+:;,'"){
-        alert("No Special Character are allowed");
-        return false;
-    }
 }
 
-function editbtn(button){
+function editbtn(button) {
     let row = button.parentNode.parentNode;
     let cell = row.getElementsByTagName('td');
 
@@ -52,7 +79,8 @@ function editbtn(button){
     idCount--;
 }
 
-function deletebtn(button){
+function deletebtn(button) {
     let row = button.parentNode.parentNode;
     row.remove();
+    hideTable();
 }
