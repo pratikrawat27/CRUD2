@@ -83,4 +83,8 @@ function editbtn(button) {
 function deletebtn(button) {
     let row = button.parentNode.parentNode;
     row.remove();
+
+    if(document.getElementById('dataTable').rows.length <= 1){
+        hideTable();
+    }
 }
